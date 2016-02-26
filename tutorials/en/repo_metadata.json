@@ -1,0 +1,50 @@
+{
+  "_comment": "Content from this URL https://github.com/ot4i/ot4i.github.io/blob/master/tutorials/en/repo_metadata.json",
+  "managerUrl": "http://ot4i.github.io/tutorials",
+  "managerVersion": "1.0",
+  "downloadableForLocalInstall": "https://github.com/ot4i/tutorials/releases/download/localInstall.zip",
+  "categories": [
+    {
+      "name": "Tool Capabilities",
+      "description": "Explore Integration Bus concepts by following simple tutorials",
+      "descriptionUrl": "http://ot4i.github.io/tutorials/en/categories/Tools_Category_overview.htm",
+      "iibVersions": "",
+      "visible": "true",
+      "tutorials": [
+	{
+       	        "name"          : "Retrieving records from a Salesforce system",
+                "version"	: "1.0",
+                "iibVersions"	: "10.*-11.*",
+           	"shortDesc"     : "Learn how to use the SalesforceRequest node to retrieve records from Salesforce.com",
+           	"detailsURL"    : "http://ot4i.github.io/iib-salesforce-tutorial/iibsalesforce/en/details.html",
+           	"stepsURL"      : "http://ot4i.github.io/iib-salesforce-tutorial/iibsalesforce/en/steps.html",
+           	"zipURL"        : "https://github.com/ot4i/iib-salesforce-tutorial/releases/download/v1.0.0/iibsalesforce_PI_v1.zip",
+           	"barFile"       : "",
+           	"visible"	: "true",
+           	"tags"		: "iib;salesforce",
+           	"isPattern"	: "false",
+           	"isFavorite"	: "true",
+           	"projects"	: "Salesforce_Retrieve:Salesforce-Schemas",
+       	        "editorResPaths": [
+           				{
+       		        	        	"id" : "MainFlow",
+       				                "editor" : "msgflow",
+    			  	                "wspath" : "<workspace>/Salesforce_Retrieve/Salesforce_Retrieve.msgflow"
+       			                }
+        		          ],
+		"deployedResources": [
+				     ]
+	} 
+      ]
+    },
+    {
+      "name": "Scenarios",
+      "description": "Explore powerful Integration Bus capabilities through integrated scenarios",
+      "descriptionUrl": "http://ot4i.github.io/tutorials/en/categories/Scenario_Category_overview.htm",
+      "iibVersions": "",
+      "visible": "true",
+      "tutorials": [
+      ]
+    }
+  ]
+}
