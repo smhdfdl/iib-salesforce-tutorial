@@ -226,13 +226,16 @@
                                 "details": 
 				 [
                                     {
-                                        "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to deploy the flow and to start recording the message path through the flow."
+                                        "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to deploy the projects and to start recording the message path through the flow."
                                     },
                                     {
                                         "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
                                     },
                                     {
-                                        "details": "Choose <span class='filepath'>Input.json</span>, edit the JSON message data if you want to change the <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span> values, and click Send. Your message is sent to the <span class='icon'>HTTP Input</span> node."
+                                        "details": "Choose <span class='filepath'>Input.json</span>. The JSON message data contains two parameters, <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span>. These will be set in the LocalEnvironment section used for the SalesforceRequest node, and control the number of records that are returned. Change the values if you want more than 10 records, or if you want to skip records."
+                                    },
+                                    {
+                                        "details": "Click Send. Your message is sent to the <span class='icon'>HTTP Input</span> node."
                                     }
                                 ]
                             }
@@ -248,17 +251,20 @@
                                 "details": 
 			        [
                                     {
-                                        "details": "The <span class='icon'>Create Filter Map</span> node sets the <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span> values in the section of the LocalEnvironment used for Salesforce."
+                                        "details": "The <span class='icon'>Create Filter Map</span> node set the <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span> values in the LocalEnvironment section used for the SalesforceRequest node."
                                     },
                                     {
-                                        "details": "The <span class='icon'>Salesforce Request</span> node retrieved up to the number of Account records specified by <span class='parmname'>Limit</span> and propagated them as a JSON array."
+                                        "details": "The <span class='icon'>Salesforce Request</span> node retrieved the number of Account records specified by <span class='parmname'>Limit</span>  and <span class='parmname'>Skip</span>, and propagated them as a JSON array."
                                     },
                                     {
                                         "details": "The <span class='icon'>Select Fields Map</span> node removed unwanted fields from the records."
                                     }
                                 ]
 			    }
-                        }                        
+                        },                        
+                        {
+                            "section": "If the Flow Exerciser failed to deploy the projects, or the flow failed to retrieve the records from the Salesforce system, follow the <span class='uicontrol'>Resolving problems when you use Salesforce nodes</span> link in the <span class='uicontrol'>Find out more</span> section to diagnose the problem."
+                        }
                     ]
                 },
                 "helpLinks": 
@@ -270,6 +276,11 @@
                             "title": "Knowledge Center link to ",
                             "description": "Testing your message flow by using the Flow exerciser",
                             "link": "com.ibm.etools.mft.doc/rt26110_.htm"
+                        },
+                        {
+                            "title": "Knowledge Center link to ",
+                            "description": "Resolving problems when you use Salesforce nodes",
+                            "link": "com.ibm.etools.mft.doc/bz90710_.htm"
                         },
                         {
                             "title": "Knowledge Center link to ",
