@@ -177,7 +177,7 @@
 									<ol>
 									
 									
-										<li> Click the Flow Exerciser icon <img src="http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png" alt> to deploy the flow and to start recording the message path through the flow.
+										<li> Click the Flow Exerciser icon <img src="http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png" alt> to deploy the projects and to start recording the message path through the flow.
 										
 										</li>
 									
@@ -185,7 +185,11 @@
 										
 										</li>
 									
-										<li> Choose <span class="filepath">Input.json</span>, edit the JSON message data if you want to change the <span class="parmname">Limit</span> and <span class="parmname">Skip</span> values, and click Send. Your message is sent to the <span class="icon">HTTP Input</span> node.
+										<li> Choose <span class="filepath">Input.json</span>. The JSON message data contains two parameters, <span class="parmname">Limit</span> and <span class="parmname">Skip</span>. These will be set in the LocalEnvironment section used for the SalesforceRequest node, and control the number of records that are returned. Change the values if you want more than 10 records, or if you want to skip records.
+										
+										</li>
+									
+										<li> Click Send. Your message is sent to the <span class="icon">HTTP Input</span> node.
 										
 										</li>
 									
@@ -204,11 +208,11 @@
 									<ul>
 									
 									
-										<li> The <span class="icon">Create Filter Map</span> node sets the <span class="parmname">Limit</span> and <span class="parmname">Skip</span> values in the section of the LocalEnvironment used for Salesforce.
+										<li> The <span class="icon">Create Filter Map</span> node set the <span class="parmname">Limit</span> and <span class="parmname">Skip</span> values in the LocalEnvironment section used for the SalesforceRequest node.
 										
 										</li>
 									
-										<li> The <span class="icon">Salesforce Request</span> node retrieved up to the number of Account records specified by <span class="parmname">Limit</span> and propagated them as a JSON array.
+										<li> The <span class="icon">Salesforce Request</span> node retrieved the number of Account records specified by <span class="parmname">Limit</span>  and <span class="parmname">Skip</span>, and propagated them as a JSON array.
 										
 										</li>
 									
@@ -221,6 +225,9 @@
 									
 								
 							
+								<p> If the Flow Exerciser failed to deploy the projects, or the flow failed to retrieve the records from the Salesforce system, follow the <span class="uicontrol">Resolving problems when you use Salesforce nodes</span> link in the <span class="uicontrol">Find out more</span> section to diagnose the problem. </p>
+								
+							
 						</div>
 						
 						<div class="row content-details"> 	
@@ -230,6 +237,11 @@
 								
 																
 								<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/rt26110_.htm')" title="Knowledge Center link to Testing your message flow by using the Flow exerciser">Testing your message flow by using the Flow exerciser</a> </li>
+							   	
+							
+								
+																
+								<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bz90710_.htm')" title="Knowledge Center link to Resolving problems when you use Salesforce nodes">Resolving problems when you use Salesforce nodes</a> </li>
 							   	
 							
 								
