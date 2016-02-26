@@ -43,7 +43,7 @@
   </div>
   <div class="row">
     <div class="small-9 medium-9 large-9 columns">
-      <h4>Modeling ISO 8583 data by using DFDL</h4>
+      <h4>Retrieving records from a Salesforce system</h4>
     </div>
     <div class="small-3 medium-3 large-3 columns"> 
       <!--a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.msgbroker.helphome.doc/help_home_msgbroker.htm');" class="small right helplink">IBM Knowledge Center</a-->
@@ -52,7 +52,7 @@
   <hr>
   <div class="row">
     <div class="small-12 medium-12 large-12 columns">
-      <h5> Learn how to model ISO 8583 data by using Data Format Description Language (DFDL). </h5>
+      <h5> Learn how to use the SalesforceRequest node to retrieve records from Salesforce.com. </h5>
     </div>
   </div>
   <div class="row content-details">
@@ -63,13 +63,15 @@
       <div class="row">
       
         
-        <p> This tutorial demonstrates the modeling of ISO 8583 data by using DFDL schema. </p>
+        <p> This tutorial demonstrates a simple message flow which retrieves a number of Account records from a Salesforce system using the SalesforceRequest node. </p>
       
-        <p> ISO 8583 is a message format for representing card-based transactions including ATM and credit card transactions. There are three releases of the standard: 1987, 1993 and 2003. </p>
+        <p> The SalesforceRequest node in IBM Integration Bus allows message flows to be developed that can Create, Retrieve, Update and Delete records for the different objects that exist in a Salesforce system, such as Account, Contact and Lead. Records may be retrieved by Salesforce ID, by custom external ID, or by SOQL WHERE clause. Records may be updated by Salesforce ID or by custom external ID. Records may be deleted by Salesforce ID. </p>
       
-        <p> ISO 8583 messages consist of a number of optional fixed-length or prefixed-length fields without initiators. The presence of a given field in the message is indicated by the setting of a corresponding bit in a bitmap. The bitmaps occur near the start of the message, and can either be in &#39;packed&#39; format where each bitmap is encoded as 8 bytes of binary data (8 bits per byte), or in &#39;unpacked&#39; format where each bitmap is encoded as 16 text characters (4 bits per character). </p>
+        <p> The SalesforceRequest node uses the Force.com REST API to exchange data with Salesforce, and so the input and output message trees for the SalesforceRequest node are in the JSON domain. </p>
       
-        <p> The DFDL schema editor is used to view the model and parse example ISO 8583 data files. </p>
+        <p> Each Salesforce object is described by a JSON schema, which may be used as the input or output schema for a Mapping node. The JSON schema for Salesforce objects are provided in the server/sample/Salesforce folder of your IBM Integration Bus installation, and must be copied into a shared library or REST API project. The map using the JSON schema must reside in the same container as the schema. </p>
+      
+        <p> You will import an application and a shared library into your Integration Toolkit workspace, configure the connection to the Salesforce system, and invoke the message flow using the Flow Exerciser. </p>
       
       </div>	  
 		<!-- help links do not work in details page for GA 
@@ -80,23 +82,8 @@
 			
 				
 												
-				<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bd40430_.htm');" title="Knowledge Center link to Message modeling overview">Message modeling overview</a> </li>
+				<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bz90600_.htm');" title="Knowledge Center link to Working with Salesforce">Working with Salesforce</a> </li>
 			   	
-			
-				
-												
-				<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/df20125_.htm');" title="Knowledge Center link to How to model data with DFDL">How to model data with DFDL</a> </li>
-			   	
-			
-				
-												
-				<li> <a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.mft.doc/bd34064_.htm');" title="Knowledge Center link to ISO8583 messaging standard">ISO8583 messaging standard</a> </li>
-			   	
-			
-				
-				
-				<li> <a href="javascript:;" onclick="openExternalBrowser('http://dfdlschemas.github.io/ISO8583/')" title="GitHub link to  DFDLSchemas ISO8583 repository">DFDLSchemas ISO8583 repository</a> </li>
-					
 			
 			</ul>
 		</div>
@@ -112,16 +99,16 @@
               <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/clock-time_128.png">
             </div>
             <div class="small-10 large-10 columns">
-              This tutorial takes approximately <b>5 minutes</b>.
+              This tutorial takes approximately <b>15 minutes</b>.
             </div>
           </div>
           <div class="row" style="margin-left: 1rem; text-align: center">
             <action>
-              <div class="small radius button" id="startTutorial" onclick="startTutorialFromDetailsScreen()"> Start Tutorial
-            </div>
+              <button class="small radius button" tabindex="0" id="startTutorial" onclick="startTutorialFromDetailsScreen()"> Start Tutorial
+            </button>
             </action>
-            <div class="small radius button" id="backToGallery" onclick="backToGallery()"> Back To Gallery
-			</div>
+            <button class="small radius button" tabindex="0" id="backToGallery" onclick="backToGallery()"> Back To Gallery
+			</button>
           </div>
         </div>
       </div>
@@ -131,11 +118,11 @@
           <ul>
             
             
-              <li>Modeling ISO8583 messages</li>
+              <li>SalesforceRequest node</li>
             
-              <li>Editing DFDL schema</li>
+              <li>Configuring a connection to Salesforce</li>
             
-              <li>Testing DFDL schema</li>
+              <li>Mapping using JSON schema</li>
             
           </ul>
         </div>
@@ -144,7 +131,7 @@
           <ul>
           
           
-            <li>An understanding of how the DFDL editor can be used to model and parse ISO 8583 data.</li>
+            <li>An understanding of how IBM Integration Bus can be used to access records in Salesforce systems.</li>
           
           </ul>
         </div>
