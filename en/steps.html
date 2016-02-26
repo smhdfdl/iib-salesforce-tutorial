@@ -212,7 +212,7 @@
 										
 										</li>
 									
-										<li> The <span class="icon">Salesforce Request</span> node retrieved the number of Account records specified by <span class="parmname">Limit</span>  and <span class="parmname">Skip</span>, and propagated them as a JSON array.
+										<li> The <span class="icon">Salesforce Request</span> node retrieved up to the number of Account records specified by <span class="parmname">Limit</span>  and <span class="parmname">Skip</span>, and propagated them as a JSON array.
 										
 										</li>
 									
@@ -223,6 +223,9 @@
 									
 									</ul>
 									
+								
+							
+								<p> Repeat the steps above, but this time choose message <span class="filepath">InputWithWhere.json</span>. The JSON message data additionally contains a <span class="parmname">where</span> parameter, which is a Salesforce Object Query Language (SOQL) expression. This is also set in the LocalEnvironment, and further limits the returned records to those Accounts created since 1st January 2016. Change the value if you want to use an alternative SOQL expression. </p>
 								
 							
 								<p> If the Flow Exerciser failed to deploy the projects, or the flow failed to retrieve the records from the Salesforce system, follow the <span class="uicontrol">Resolving problems when you use Salesforce nodes</span> link in the <span class="uicontrol">Find out more</span> section to diagnose the problem. </p>
