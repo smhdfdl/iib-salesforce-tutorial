@@ -5,14 +5,17 @@
   "type": "object",
   "name": "Input",
   "properties": {
-    "URL": {
+    "url": {
       "type": "string"
     },
-    "Skip": {
+    "skip": {
       "type": "integer"
     },
-    "Limit": {
-      "type": "integer"
-    }
+    "limit": {
+        "type": "integer"
+    },
+    "where": {
+        "type": "string"
+      }
   }  
 }

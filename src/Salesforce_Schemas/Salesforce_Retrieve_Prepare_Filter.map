@@ -19,15 +19,19 @@
             <output path="$MessageAssembly1/Properties"/>
         </move>
         <move>
-            <input path="$MessageAssembly/JSON/spath('Data',2)/Limit"/>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/where"/>
+            <output path="$MessageAssembly1/LocalEnvironment/Destination/Salesforce/Request/filter/where"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/limit"/>
             <output path="$MessageAssembly1/LocalEnvironment/Destination/Salesforce/Request/filter/limit"/>
         </move>
         <move>
-            <input path="$MessageAssembly/JSON/spath('Data',2)/Skip"/>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/skip"/>
             <output path="$MessageAssembly1/LocalEnvironment/Destination/Salesforce/Request/filter/skip"/>
         </move>
         <move>
-            <input path="$MessageAssembly/JSON/spath('Data',2)/URL"/>
+            <input path="$MessageAssembly/JSON/spath('Data',2)/url"/>
             <output path="$MessageAssembly1/LocalEnvironment/Destination/Salesforce/Request/url"/>
         </move>
     </mappingDeclaration>
