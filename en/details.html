@@ -63,7 +63,7 @@
       <div class="row">
       
         
-        <p> This tutorial demonstrates a simple message flow which retrieves a number of Account records from a Salesforce system using the SalesforceRequest node. </p>
+        <p> This tutorial demonstrates a simple message flow which retrieves existing Account records from a Salesforce system using the SalesforceRequest node. The flow exposes a HTTP service which accepts some filter properties to limit the number of Account records returned. The records are returned as an array of JSON objects. </p>
       
         <p> The SalesforceRequest node in IBM Integration Bus allows message flows to be developed that can Create, Retrieve, Update and Delete records for the different objects that exist in a Salesforce system, such as Account, Contact and Lead. Records may be retrieved by Salesforce ID, by custom external ID, or by SOQL WHERE clause. Records may be updated by Salesforce ID or by custom external ID. Records may be deleted by Salesforce ID. </p>
       
@@ -72,6 +72,8 @@
         <p> Each Salesforce object is described by a JSON schema, which may be used as the input or output schema for a Mapping node. The JSON schema for Salesforce objects are provided in the server/sample/Salesforce folder of your IBM Integration Bus installation, and must be copied into a shared library or REST API project. The map using the JSON schema must reside in the same container as the schema. </p>
       
         <p> You will import an application and a shared library into your Integration Toolkit workspace, configure the connection to the Salesforce system, and invoke the message flow using the Flow Exerciser. </p>
+      
+        <p> NOTE: The SalesforceRequest node is available in developer mode and applicationIntegrationSuite mode only. If you are not using IBM Integration Bus for Developers, you must use mqsimode to modify your integration node to run in applicationIntegrationSuite mode before you start the tutorial. You must obtain an IBM Application Integration Suite license to use the SaleforceRequest node in production. </p>
       
       </div>	  
 		<!-- help links do not work in details page for GA 

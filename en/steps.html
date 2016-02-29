@@ -132,6 +132,9 @@
 								<p> In order for the SalesforceRequest node to communicate with Salesforce, a Connected App must be created in the Salesforce system and a Security Identity must be created in IBM Integration Bus using <span class="cmdname">mqsisetdbparms</span>. Follow the <span class="uicontrol">Configuring a secure connection to Salesforce.com</span> link in the <span class="uicontrol">Find out more</span> section to perform these tasks. The Security Identity should be called <span class="resource">sf1</span> to match the <span class="icon">Salesforce Request</span> node property, or you can create one with your own name and update the node property. </p>
 								
 							
+								<p> If you are not using Developer edition, from an IBM Integration console run <span class="cmdname">mqsimode &lt;integration_node&gt; -o applicationIntegrationSuite</span>. </p>
+								
+							
 								<p> Next you will use the Flow exerciser to send HTTP requests to the message flow. </p>
 								
 							
@@ -185,7 +188,7 @@
 										
 										</li>
 									
-										<li> Choose <span class="filepath">Input.json</span>. The JSON message data contains two parameters, <span class="parmname">Limit</span> and <span class="parmname">Skip</span>. These will be set in the LocalEnvironment section used for the SalesforceRequest node, and control the number of records that are returned. Change the values if you want more than 10 records, or if you want to skip records.
+										<li> Choose <span class="filepath">Input.json</span>. The JSON message data contains two filter parameters, <span class="parmname">Limit</span> and <span class="parmname">Skip</span>. These will be set in the LocalEnvironment section used for the SalesforceRequest node, and control the number of records that are returned. Change the values if you want more than 10 records, or if you want to skip records.
 										
 										</li>
 									
@@ -216,7 +219,7 @@
 										
 										</li>
 									
-										<li> The <span class="icon">Select Fields Map</span> node removed unwanted fields from the records.
+										<li> The <span class="icon">Select Fields Map</span> node removed unwanted fields from each record in the array, using a map built from the JSON schema for the Account object.
 										
 										</li>
 									
@@ -225,7 +228,7 @@
 									
 								
 							
-								<p> Repeat the steps above, but this time choose message <span class="filepath">InputWithWhere.json</span>. The JSON message data additionally contains a <span class="parmname">where</span> parameter, which is a Salesforce Object Query Language (SOQL) expression. This is also set in the LocalEnvironment, and further limits the returned records to those Accounts created since 1st January 2016. Change the value if you want to use an alternative SOQL expression. </p>
+								<p> Repeat the steps above, but this time choose message <span class="filepath">InputWithWhere.json</span>. The JSON message data additionally contains a <span class="parmname">where</span> filter parameter, which is a Salesforce Object Query Language (SOQL) expression. This is also set in the LocalEnvironment, and further limits the returned records to those Accounts created since 1st January 2015. Change the value if you want to use an alternative SOQL expression. </p>
 								
 							
 								<p> If the Flow Exerciser failed to deploy the projects, or the flow failed to retrieve the records from the Salesforce system, follow the <span class="uicontrol">Resolving problems when you use Salesforce nodes</span> link in the <span class="uicontrol">Find out more</span> section to diagnose the problem. </p>
