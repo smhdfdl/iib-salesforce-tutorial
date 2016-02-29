@@ -75,7 +75,7 @@
                 "sections": 
 				[
                     {
-                        "section": "This tutorial demonstrates a simple message flow which retrieves a number of Account records from a Salesforce system using the SalesforceRequest node."
+                        "section": "This tutorial demonstrates a simple message flow which retrieves existing Account records from a Salesforce system using the SalesforceRequest node. The flow exposes a HTTP service which accepts some filter properties to limit the number of Account records returned. The records are returned as an array of JSON objects."
                     },
                     {
                         "section": "The SalesforceRequest node in IBM Integration Bus allows message flows to be developed that can Create, Retrieve, Update and Delete records for the different objects that exist in a Salesforce system, such as Account, Contact and Lead. Records may be retrieved by Salesforce ID, by custom external ID, or by SOQL WHERE clause. Records may be updated by Salesforce ID or by custom external ID. Records may be deleted by Salesforce ID."
@@ -88,6 +88,9 @@
                     },
                     {
                         "section": "You will import an application and a shared library into your Integration Toolkit workspace, configure the connection to the Salesforce system, and invoke the message flow using the Flow Exerciser."
+                    },
+                    {
+                        "section": "NOTE: The SalesforceRequest node is available in developer mode and applicationIntegrationSuite mode only. If you are not using IBM Integration Bus for Developers, you must use mqsimode to modify your integration node to run in applicationIntegrationSuite mode before you start the tutorial. You must obtain an IBM Application Integration Suite license to use the SaleforceRequest node in production."
                     }
                 ]
             },
@@ -171,6 +174,9 @@
                             "section": "In order for the SalesforceRequest node to communicate with Salesforce, a Connected App must be created in the Salesforce system and a Security Identity must be created in IBM Integration Bus using <span class='cmdname'>mqsisetdbparms</span>. Follow the <span class='uicontrol'>Configuring a secure connection to Salesforce.com</span> link in the <span class='uicontrol'>Find out more</span> section to perform these tasks. The Security Identity should be called <span class='resource'>sf1</span> to match the <span class='icon'>Salesforce Request</span> node property, or you can create one with your own name and update the node property." 
                         },
                         {
+                            "section": "If you are not using Developer edition, from an IBM Integration console run <span class='cmdname'>mqsimode &lt;integration_node&gt; -o applicationIntegrationSuite</span>."
+                        },
+                        {
                             "section": "Next you will use the Flow exerciser to send HTTP requests to the message flow."
                         }
                     ]
@@ -232,7 +238,7 @@
                                         "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
                                     },
                                     {
-                                        "details": "Choose <span class='filepath'>Input.json</span>. The JSON message data contains two parameters, <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span>. These will be set in the LocalEnvironment section used for the SalesforceRequest node, and control the number of records that are returned. Change the values if you want more than 10 records, or if you want to skip records."
+                                        "details": "Choose <span class='filepath'>Input.json</span>. The JSON message data contains two filter parameters, <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span>. These will be set in the LocalEnvironment section used for the SalesforceRequest node, and control the number of records that are returned. Change the values if you want more than 10 records, or if you want to skip records."
                                     },
                                     {
                                         "details": "Click Send. Your message is sent to the <span class='icon'>HTTP Input</span> node."
@@ -257,13 +263,13 @@
                                         "details": "The <span class='icon'>Salesforce Request</span> node retrieved up to the number of Account records specified by <span class='parmname'>Limit</span>  and <span class='parmname'>Skip</span>, and propagated them as a JSON array."
                                     },
                                     {
-                                        "details": "The <span class='icon'>Select Fields Map</span> node removed unwanted fields from the records."
+                                        "details": "The <span class='icon'>Select Fields Map</span> node removed unwanted fields from each record in the array, using a map built from the JSON schema for the Account object."
                                     }
                                 ]
 			    }
                         },                        
                         {
-                            "section": "Repeat the steps above, but this time choose message <span class='filepath'>InputWithWhere.json</span>. The JSON message data additionally contains a <span class='parmname'>where</span> parameter, which is a Salesforce Object Query Language (SOQL) expression. This is also set in the LocalEnvironment, and further limits the returned records to those Accounts created since 1st January 2016. Change the value if you want to use an alternative SOQL expression."
+                            "section": "Repeat the steps above, but this time choose message <span class='filepath'>InputWithWhere.json</span>. The JSON message data additionally contains a <span class='parmname'>where</span> filter parameter, which is a Salesforce Object Query Language (SOQL) expression. This is also set in the LocalEnvironment, and further limits the returned records to those Accounts created since 1st January 2015. Change the value if you want to use an alternative SOQL expression."
                         },
                         {
                             "section": "If the Flow Exerciser failed to deploy the projects, or the flow failed to retrieve the records from the Salesforce system, follow the <span class='uicontrol'>Resolving problems when you use Salesforce nodes</span> link in the <span class='uicontrol'>Find out more</span> section to diagnose the problem."
@@ -308,3 +314,4 @@
         }
     }
 }
+
