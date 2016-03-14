@@ -242,15 +242,15 @@
                                     },
                                     {
                                         "details": "Click Send. Your message is sent to the <span class='icon'>HTTP Input</span> node."
+                                    },
+                                    {
+                                        "details": "In the Progress Information dialog, click on <span class='property'>Received HTTP reply message ...</span> to view the output message from the flow. The Account records have been returned as a JSON array."  
                                     }
                                 ]
                             }
                         },
                         {
-                            "section": "After the message is processed, the message path is automatically highlighted on the message flow."
-                        },
-                        {
-                            "section": "Click on any connection to see the data that passed through that connection. You can see that:",
+                            "section": "After you close the dialog, the message path is automatically highlighted on the message flow. Click on any connection to see the data that passed through that connection. You can see that:",
                             "steps": 
 			    {
                                 "type": "unordered",
