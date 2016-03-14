@@ -257,7 +257,7 @@
                                 "details": 
 			        [
                                     {
-                                        "details": "The <span class='icon'>Create Filter Map</span> node set the <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span> values in the LocalEnvironment section used for the SalesforceRequest node."
+                                        "details": "The <span class='icon'>Prepare Filter Map</span> node set the <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span> values in the LocalEnvironment section used for the SalesforceRequest node."
                                     },
                                     {
                                         "details": "The <span class='icon'>Salesforce Request</span> node retrieved up to the number of Account records specified by <span class='parmname'>Limit</span>  and <span class='parmname'>Skip</span>, and propagated them as a JSON array."
